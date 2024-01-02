@@ -1,0 +1,28 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Masamune"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  # logo = "img/abcd.jpg"
+  secondaryLogo = "img/avatar.png"
+  description = "Masamune's personal page"
+  copyright = "Copyright © Masamune"
+
+[author]
+   name = "Masamune"
+   image = "img/avatar.png"
+   headline = "Web noob CTFer"
+   bio = "A web noob CTFer from BKISC (Bach Khoa Information Security Club)" 
+   links = [
+     { facebook = "https://www.facebook.com/Qminh0904/" },
+     { github = "https://github.com/Masamuneee" },
+     { instagram = "https://www.instagram.com/qminh0904/" },
+     { linkedin = "https://www.linkedin.com/in/pqminh0904/" },
+     { twitter = "https://twitter.com/masamunee2003" },
+     { reddit = "https://www.reddit.com/user/Masaamune" },
+   ]
