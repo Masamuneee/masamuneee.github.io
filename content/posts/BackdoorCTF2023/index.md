@@ -14,8 +14,6 @@ draft: false
 
 <h1>Backdoor CTF 2023 - Writeup Challenges</h1>
 
-**Table of Contents**
-[TOC]
 
 ## web/too-many-admins
 ![image](https://hackmd.io/_uploads/Bylp_-C8T.png)
