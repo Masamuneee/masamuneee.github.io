@@ -486,7 +486,7 @@ Total 165 lines to Javascript for just a simple `print("hello world")`. Sounds c
 
 ![image](https://i.ibb.co/TBYbW2J/image-2024-04-13-113453318.png)
 
-But it not alert anything. It seems weird althought it show in elements. After search a bit i see [this](https://stackoverflow.com/questions/14158252/avoid-xss-with-an-html-tag-like-pre). It would be escaped because filter or sanitizer so just put `</pre>` in the begin right ? But it do not work even though i try to escape it. But wait, am i missing something ? Do i just only have tag `<script>` that raise XSS vuln ? How about `<img> , <iframe> , <svg>` tag ? 
+But it not alert anything. It seems weird althought it show in elements. After searching google i see [this blog](https://stackoverflow.com/questions/14158252/avoid-xss-with-an-html-tag-like-pre). It would be escaped because filter or sanitizer so just put `</pre>` in the begin right ? But it do not work even though i try to escape it. But wait, am i missing something ? Do i just only have tag `<script>` that raise XSS vuln ? How about `<img> , <iframe> , <svg>` tag ? 
 
 ![image](https://i.ibb.co/K5CP8hv/image-2024-04-13-113458993.png)
 
