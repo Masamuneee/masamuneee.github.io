@@ -174,7 +174,7 @@ if __name__ == "__main__":
 This challenge has 3 way to solve and i solve with the easiest way. 
 * First method:
 > The first method is inject the id in route `guess` to bypass `WHERE password = ?`. Because the regex just check if the not the id with 16 length and match with `1234567890abcdef` it will return "invalid id". So just input the right id and send the payload after that. 
-![image](https://hackmd.io/_uploads/ByZCAoUeR.png)
+![image](https://i.ibb.co/V2KxwmL/image-2024-04-13-112055544.png)
 > Payload: `id = id WHERE 1=1 OR 1=?--&password=test`
 * Second method: 
 > First, i create the session and use intercept in burpsuite to catch the id table. So they can not update the table id or drop it. Then create a new session and use that to inject to this query. `query = db.execute(f"SELECT password FROM table_{id} WHERE password LIKE '%{request.form['query']}%'")` That the payload is inject to the query and brute force the table's password that i create at the first time. And create a new session to brute force until get the password and use that to get the password with the first table's id and get the flag. This just the idea after i solve by the 1st method so i do not build a full script for this.
