@@ -5,7 +5,7 @@ summary: "Writeup for web challenges in AmateursCTF 2024"
 categories: ["Writeup"]
 tags: ["Web Exploitation","Crypto", "Reverse Engineer","OSINT","MISC", "CTF"]
 #externalUrl: ""
-date: 2023-11-20
+date: 2024-04-13
 draft: false
 ---
 
