@@ -698,7 +698,7 @@ The idea that i use to solve is [this one](https://security.stackexchange.com/qu
 
 > However, there is a considerable amount of confusion on the actual limit. Some people believe that the "56 bytes" limit includes a 4-byte salt, leading to a lower limit of 51 characters. Other people point out that the algorithm, internally, manages things as 18 32-bit words, for a total of 72 bytes, so you could go to 71 characters (or even 72 if you don't manage strings with a terminating zero).
 
-So the maximum length of the bcrypt password is 72 bytes. so the idea is i register with 72 bytes minus length of the flag and login with the string that we get that is the flag. For example:
+So the maximum length of the bcrypt password is 72 bytes. so the idea is i register with 72 bytes minus length of the flag and login with the string that i guess that is the flag. For example:
 `amateursCTF{a`, `amateursCTF{b` and so on. If they match with the flag i register that is the next character of the flag.
 
 The exploit script:
