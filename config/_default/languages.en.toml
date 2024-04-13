@@ -19,10 +19,7 @@ title = "Masamune"
    headline = "Web noob CTFer"
    bio = "A web noob CTFer from BKISC (Bach Khoa Information Security Club)" 
    links = [
-     { facebook = "https://www.facebook.com/Qminh0904/" },
      { github = "https://github.com/Masamuneee" },
-     { instagram = "https://www.instagram.com/qminh0904/" },
-     { linkedin = "https://www.linkedin.com/in/pqminh0904/" },
      { twitter = "https://twitter.com/masamunee2003" },
      { reddit = "https://www.reddit.com/user/Masaamune" },
    ]
