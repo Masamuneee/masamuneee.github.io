@@ -480,7 +480,7 @@ This code provides a web interface to run Python code using [Skulpt](https://sku
 
 So the point is skulpt runs a python code and compiles into javascript. Here is a example:
 
-![image](hhttps://i.ibb.co/8rKVVqj/image-2024-04-13-113444566.png)
+![image](https://i.ibb.co/8rKVVqj/image-2024-04-13-113444566.png)
 
 Total 165 lines to Javascript for just a simple `print("hello world")`. Sounds crazy lul. But the point is that it runs a python code and shows the output using pre element to display the results. And they also give the bot (typical XSS challenge). So what if we print something like `<script>alert()</script>` ?
 
