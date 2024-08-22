@@ -19,7 +19,7 @@ draft: false
 ![image](https://hackmd.io/_uploads/Bylp_-C8T.png)
 
 This chall gives me a source. When read `index.php` i saw this line:
-```php=
+```php
 if($userParam){
     if($userParam !=  "all"){
     $query = "SELECT username, password, bio FROM users where username = '$userParam' ";
@@ -32,7 +32,7 @@ if($userParam){
 
 So it is simple SQL Injection and the flag is hide in the random admin's bio.
 
-```sql=
+```sql
 CREATE PROCEDURE GenerateRandomUsers()
 BEGIN
     DECLARE i INT DEFAULT 0;
@@ -85,7 +85,7 @@ Flag: `flag{n07_4n07h3r_5571_ch4ll3n63}`
 
 The challenge gives me a description with these letters are written in uppercase so i think the username is in the path of server. And we need to brute a little bit. Simple script to get the username:
 
-```python=
+```python
 import requests
 import string
 
@@ -123,7 +123,7 @@ Flag: `flag{th3_4uth0rs_4r3_1n_l0v3_w1th34ch_0th3r}`
 I think about XSS injection when this web gives me a bot to visit the url i give. So the idea is giving the url have xss to take the bot cookie (which is the flag). The first thing we need to bypass isAdmin. 
 
 Source code route report and posts:
-```js=
+```js
 app.post("/report", async (req, res, next) => {
     const { url } = req.body;
     if (!url) {
@@ -169,7 +169,7 @@ app.post("/report", async (req, res, next) => {
 
 After read a source a little bit a see this:
 
-```js=
+```js
 app.post("/create", async (req, res, next) => {
     let obj = duplicate(req.body);
 
@@ -207,7 +207,7 @@ app.post("/create", async (req, res, next) => {
 
 Let check how the duplicate function is defined.
 
-```js=
+```js
 export function duplicate(body) {
     let obj={}
     let keys = Object.keys(body);

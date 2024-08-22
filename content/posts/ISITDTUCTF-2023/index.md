@@ -18,7 +18,7 @@ draft: false
 
 Review code:
 
-```python!
+```python
 from flask import Flask, request, render_template_string,redirect
 
 app = Flask(__name__)
@@ -51,7 +51,7 @@ Trick Bypass: **attr + format**
 - Because they filter most of word that can ssti so we need to use attr and format to generate the string to bypass this.
 - Example: `attr("%c%c%c%c%c%c%c%c%c%c%c%c"|format(99,97,116,32,102,108,97,103,46,116,120,116))` is generate to `cat flag.txt`
 - The final exploit script:
-``` python!
+``` python
 import requests
 
 def gen(p):
@@ -117,7 +117,7 @@ quibuu
 Review code:
 
 `App.py`:
-```python!
+```python
 from flask import Flask, render_template, request
 import random
 import re
@@ -178,7 +178,7 @@ And we can inject into the id but also need to bypass the function `waf_cuc_chil
 
 Final exploit script:
 
-```python!
+```python
 import requests
 import string
 
@@ -231,7 +231,7 @@ Example:
 > x > r => it will be sorted below zeroTestPage.aspx file.
 
 Final exploit script:
-```python!
+```python
 import requests
 import re
 

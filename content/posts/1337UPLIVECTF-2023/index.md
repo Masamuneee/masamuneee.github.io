@@ -33,7 +33,7 @@ Idea:
 > - The format flag is "INTIGRITI{}"
 
 Final script:
-```python!
+```python
 import requests
 import string
 
@@ -98,7 +98,7 @@ Flag: `INTIGRITI{h3y_wh0_541d_y0u_c0uld_cl0bb3r_7h3_d0m}`
 ![image](https://hackmd.io/_uploads/H1BRANPE6.png)
 
 **Review source code:**
-```php!
+```php
 <?php
 if(isset($_GET['source'])){
     highlight_file(__FILE__);
@@ -215,7 +215,7 @@ But i try to fuzzing the username. And then the author hint the username.
 So guessy hmm. So the username and the password is done now. The last one is OTP(This OTP at the beginning they set it 3 digit pin and then the solution is 2 digit).
 
 **Final exploit script:**
-```python!
+```python
 import requests
 import re
 
@@ -257,13 +257,13 @@ So this can LFI to get the file. The structure looks like this.
 ![image](https://hackmd.io/_uploads/BJEuQ6vNT.png)
 **Review code:**
 In the app/routes/index.js i found this.
-```javascript!
+```javascript
 router.get('/admin', isAdmin, (req, res) => {
  res.render('admin', { flag: process.env.FLAG || 'CTF{DUMMY}' })
 })
 ```
 So if I need to go to admin path and get the flag i need to bypass isAdmin fisrt. 
-```javascript!
+```javascript
 // app/middleware/check_admin.js
 const { getUser, userExists } = require('../services/user')
 const isAdmin = (req, res, next) => {
@@ -290,7 +290,7 @@ module.exports = { isAdmin }
 ```
 
 So we need to create a JSON file that set isAdmin = true to access the /admin. But the loginHash make me confuse after trying to Propotype Pollution in /app/utils/generateProfileCard.js.
-```javascript!
+```javascript
 const puppeteer = require('puppeteer')
 const fs = require('fs')
 const path = require('path')
@@ -329,7 +329,7 @@ module.exports = { generatePDF }
 
 There is the solution of the author:
 
-```!
+```
 1. Find LFI via html injection in spotify code on `/profile`. Triggers when a profile card is generated ("Generate profile card" `profile/generate-profile-card`)
 2. Initial exploration:
    1. Get idea of file structure by checking path: `<script>document.body.append(location.href)</script>`
