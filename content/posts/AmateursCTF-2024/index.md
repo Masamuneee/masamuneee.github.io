@@ -15,7 +15,7 @@ draft: false
 ## Overview
 
 The CTF event: https://ctftime.org/event/2226/
-I played as solo player and got the rank higher than i expected lul. I have learn a lots when playing this CTF. 
+I played as solo player and got the rank higher than i expected lul. I have learned a lots when playing this CTF. 
 ![image](https://hackmd.io/_uploads/HJr4iSUg0.png)
 
 ## Writeup
