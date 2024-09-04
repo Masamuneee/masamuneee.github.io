@@ -21,7 +21,7 @@ layoutBackgroundHeaderSpace: false
 
 ---
 
-Hi my name is Masamune. I’m a noob player from HCMC University of Technology.
+Hi my name is Masamune. I’m a web player/researcher from HCMC University of Technology.
 
 Dedicate to Cybersecurity, specialize in Web Exploitation, and also a little bit of coding algorithms.
 

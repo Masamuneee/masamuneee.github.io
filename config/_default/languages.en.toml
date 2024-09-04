@@ -16,8 +16,8 @@ title = "Masamune"
 [author]
    name = "Masamune"
    image = "img/avatar.png"
-   headline = "Web noob CTFer"
-   bio = "A web noob CTFer from BKISC (Bach Khoa Information Security Club)" 
+   headline = "Web CTFer/Researcher"
+   bio = "A web CTFer/Researcher" 
    links = [
      { github = "https://github.com/Masamuneee" },
      { twitter = "https://twitter.com/masamunee2003" },
