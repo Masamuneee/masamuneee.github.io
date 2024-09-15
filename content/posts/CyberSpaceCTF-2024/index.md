@@ -209,7 +209,7 @@ Using that can work for both local and remote.
 
 ![image](img/notekeeper_1.png)
 
-## Part 2
+### Second part
 
 Next, I needed to steal the admin’s session to fulfill the first condition. The application includes the following code, which allows file reads from the server:
 
