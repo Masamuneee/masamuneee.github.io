@@ -199,7 +199,7 @@ First, I tried changing the IP using the X-Forwarded-For header as described in 
 
 After a few hours, I receive admin's announcement:
 
-![image](img/announcement.png
+![image](img/announcement.png)
 
 Hmmm, so because of Load Balancer, it restricts the header `X-Forwarded-For`. In the [ruby source code](https://github.com/rack/rack/blob/main/lib/rack/request.rb#L356) also describe this problem. After some research, I found [that](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded) using the Forwarded header allowed the bypass both locally and remotely.
 
