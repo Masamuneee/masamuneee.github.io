@@ -1,5 +1,5 @@
 ---
-title: "CyberSpace CTF 2024"
+title: "CyberSpace CTF 2024 - Writeup Web Challenges"
 description: "Writeup for web challenges in CyberSpace CTF 2024"
 summary: "Writeup for web challenges in CyberSpace CTF 2024"
 categories: ["Writeup"]
@@ -9,7 +9,7 @@ date: 2024-09-03
 draft: false
 ---
 
-# CyberSpace CTF 2024 Writeup
+# Writeup
 
 ## ZipZone
 
