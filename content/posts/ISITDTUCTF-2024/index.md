@@ -211,7 +211,7 @@ $date.getClass().forName("java.lang.Runtime").getMethod("getRuntime", null).invo
 
 Flag: `ISITDTU{We1come_t0_1s1tDTU_CTF}`
 
-### Hero
+### Hero (Upsolve)
 
 ![image](img/hero.png)
 
@@ -292,7 +292,7 @@ if __name__ == '__main__':
 ```
 
 
-### Geo Weapon 
+### Geo Weapon (Not solve)
 
 ![image](img/geo_weapon.png)
 
