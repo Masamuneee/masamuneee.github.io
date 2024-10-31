@@ -122,7 +122,7 @@ Flag: `ISITDTU{d364c13b91d3bd0ecb3ffed49b229fc06b1208e8}`
 This challenge uses Liferay 6.2 GA3 to deploy a basic web interface. Liferay with version <7.0 is vulnerable to the deserialization attack. There is [a blog](https://sec.vnpt.vn/2019/01/ahihihihihihihihihihihihi/
 ) discussing this exploit, suggesting to send a malicious payload to `/api///liferay` due to bad URI filtering in the version 6.2.3-ga4 and below.
 
-The malicious payload can be generated using ysoserial with `CommonsCollections5` as suggested in the article mentioned above.
+The malicious payload can be generated using [ysoserial](https://github.com/frohoff/ysoserial) with payload type `CommonsCollections5` as suggested in the article mentioned above.
 
 The command payload to get flag is something like this:
 ```
@@ -154,7 +154,7 @@ Flag: `ISITDTU{5e85c3b7f62b1dd9a990530c03f39abaa78f7085}`
 
 This challenge using velocity to render. So i think about **velocity SSTI**. But first it need to serialize data and then send it. So i create a place in `com.isitdtu.hihi.Users` (also bypass this filter)
 
-```java!
+```java
 if (!approvedClass.contains(osc.getName())) {
             throw new InvalidClassException("Cannot deserialize this class!", osc.getName());
 }
