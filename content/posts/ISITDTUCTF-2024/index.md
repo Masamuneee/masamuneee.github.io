@@ -291,3 +291,9 @@ if __name__ == '__main__':
     main()
 ```
 
+
+### Geo Weapon 
+
+![image](img/geo_weapon.png)
+
+This challenge is a 0-day in geoserver. I think this vuln can be exploited using another N-day i found in [baidu](https://baijiahao.baidu.com/s?id=1803977874144060141&wfr=spider&for=pc). But i do not have enough time to analyze the patch so maybe i will try to solve this later if i could find a new CVE :))). 
